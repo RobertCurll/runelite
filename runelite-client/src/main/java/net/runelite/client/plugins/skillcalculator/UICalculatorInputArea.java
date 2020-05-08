@@ -28,7 +28,6 @@ package net.runelite.client.plugins.skillcalculator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;

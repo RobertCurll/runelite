@@ -375,7 +375,7 @@ class SkillCalculator extends JPanel
 		uiInput.setCurrentXPInput(cXP);
 		uiInput.setTargetLevelInput(targetLevel);
 		uiInput.setTargetXPInput(tXP);
-		uiInput.setNeededXP(nXP);
+		uiInput.setNeededXP(nXP + " XP required to hit target XP.");
 		calculate();
 	}
 

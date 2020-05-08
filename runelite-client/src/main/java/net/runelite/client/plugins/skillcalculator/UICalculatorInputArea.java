@@ -28,6 +28,7 @@ package net.runelite.client.plugins.skillcalculator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -44,16 +45,15 @@ class UICalculatorInputArea extends JPanel
 	private final JTextField uiFieldCurrentXP;
 	private final JTextField uiFieldTargetLevel;
 	private final JTextField uiFieldTargetXP;
-	private final JTextField uiFieldNeededXP;
+	//private final JTextField uiFieldNeededXP;
 
 	UICalculatorInputArea()
 	{
-		setLayout(new GridLayout(3, 2, 7, 7));
+		setLayout(new GridLayout(2, 2, 7, 7));
 		uiFieldCurrentLevel = addComponent("Current Level");
 		uiFieldCurrentXP = addComponent("Current Experience");
 		uiFieldTargetLevel = addComponent("Target Level");
 		uiFieldTargetXP = addComponent("Target Experience");
-		uiFieldNeededXP = addComponent("Needed Experience");
 	}
 
 
@@ -97,11 +97,11 @@ class UICalculatorInputArea extends JPanel
 		setInput(uiFieldTargetXP, value);
 	}
 
+
 	void setNeededXP(Object value)
 	{
-		setInput(uiFieldNeededXP, value);
+		uiFieldTargetXP.setToolTipText((String) value);
 	}
-
 
 	private int getInput(JTextField field)
 	{

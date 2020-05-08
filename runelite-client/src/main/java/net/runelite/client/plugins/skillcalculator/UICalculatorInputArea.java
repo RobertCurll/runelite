@@ -45,7 +45,6 @@ class UICalculatorInputArea extends JPanel
 	private final JTextField uiFieldCurrentXP;
 	private final JTextField uiFieldTargetLevel;
 	private final JTextField uiFieldTargetXP;
-	//private final JTextField uiFieldNeededXP;
 
 	UICalculatorInputArea()
 	{

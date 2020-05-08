@@ -80,7 +80,7 @@ class SkillCalculator extends JPanel
 	private int targetLevel = currentLevel + 1;
 	private int targetXP = Experience.getXpForLevel(targetLevel);
 	private float xpFactor = 1.0f;
-
+	private int neededXP = 0;
 	SkillCalculator(Client client, UICalculatorInputArea uiInput, SpriteManager spriteManager, ItemManager itemManager)
 	{
 		this.client = client;
@@ -359,6 +359,7 @@ class SkillCalculator extends JPanel
 		return XP_FORMAT.format(xp) + expExpression + NumberFormat.getIntegerInstance().format(actionCount) + (actionCount > 1 ? " actions" : " action");
 	}
 
+
 	private void updateInputFields()
 	{
 		if (targetXP < currentXP)
@@ -366,13 +367,19 @@ class SkillCalculator extends JPanel
 			targetLevel = enforceSkillBounds(currentLevel + 1);
 			targetXP = Experience.getXpForLevel(targetLevel);
 		}
-
+		neededXP = targetXP - currentXP;
+		String nXP = NumberFormat.getIntegerInstance().format(neededXP);
+		String cXP = NumberFormat.getIntegerInstance().format(currentXP);
+		String tXP = NumberFormat.getIntegerInstance().format(targetXP);
 		uiInput.setCurrentLevelInput(currentLevel);
-		uiInput.setCurrentXPInput(currentXP);
+		uiInput.setCurrentXPInput(cXP);
 		uiInput.setTargetLevelInput(targetLevel);
-		uiInput.setTargetXPInput(targetXP);
+		uiInput.setTargetXPInput(tXP);
+		uiInput.setNeededXP(nXP);
 		calculate();
 	}
+
+
 
 	private void adjustXPBonus(float value)
 	{
